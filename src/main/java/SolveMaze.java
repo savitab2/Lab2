@@ -1,4 +1,5 @@
 import edu.illinois.cs.cs125.lib.mazemaker.Maze;
+import java.lang.Math;
 
 /**
  * Solve a randomly-generated maze.
@@ -28,13 +29,33 @@ public class SolveMaze {
         maze.startAtZero();
         maze.endAtTopRight();
 
+       // while (!maze.isFinished()) {
+            //maze.turnLeft();
+            //while (!maze.canMove()) {
+                //maze.turnRight();
+       // }
+           // maze.move();
+        //}
+
         while (!maze.isFinished()) {
-            maze.turnLeft();
-            while (!maze.canMove()) {
+            if (Math.random() > 0.5){
+                maze.turnLeft();
+            }
+            else {
                 maze.turnRight();
-        }
+            }
+            while (!maze.canMove()) {
+                if (Math.random() > 0.5){
+                    maze.turnLeft();
+                }
+                else {
+                    maze.turnRight();
+                }
+            }
             maze.move();
+
         }
+
 
 
         /*
