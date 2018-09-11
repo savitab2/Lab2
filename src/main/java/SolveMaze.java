@@ -9,7 +9,6 @@ import edu.illinois.cs.cs125.lib.mazemaker.Maze;
  */
 @SuppressWarnings("checkstyle:emptyblock")
 public class SolveMaze {
-
     /**
      * Implement your maze solving algorithm in the main method below.
      *
@@ -28,6 +27,15 @@ public class SolveMaze {
          */
         maze.startAtZero();
         maze.endAtTopRight();
+
+        while (!maze.isFinished()) {
+            maze.turnLeft();
+            while (!maze.canMove()) {
+                maze.turnRight();
+        }
+            maze.move();
+        }
+
 
         /*
          * You should be able to solve a 10 x 10 maze in (far fewer than) 1000 steps.
